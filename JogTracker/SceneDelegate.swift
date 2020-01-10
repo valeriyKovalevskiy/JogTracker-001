@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  JogTracker
 //
-//  Created by валерий on 1/10/20.
+//  Created by Valeriy Kovalevskiy on 1/10/20.
 //  Copyright © 2020 ValeriyKovalevskiy. All rights reserved.
 //
 
