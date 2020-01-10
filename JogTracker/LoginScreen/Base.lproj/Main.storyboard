@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,50 +10,41 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NAP-fB-sTg"/>
+                        <viewControllerLayoutGuide type="bottom" id="cLK-aj-N2j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bearFace" translatesAutoresizingMaskIntoConstraints="NO" id="Y5N-Lq-ScS">
-                                <rect key="frame" x="107.5" y="217.5" width="160" height="150"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxB-Mo-y9w" customClass="UpperNavigationPanel" customModule="JogTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="Kci-EQ-JtL"/>
-                                    <constraint firstAttribute="width" constant="160" id="dBs-rd-GFC"/>
+                                    <constraint firstAttribute="height" constant="77" id="gNJ-KM-ZbT"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idd-jy-c4o">
-                                <rect key="frame" x="112" y="470.5" width="151" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="151" id="P2q-u4-4hp"/>
-                                    <constraint firstAttribute="height" constant="60" id="sTe-Qa-Jbh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Let me in"/>
-                                <connections>
-                                    <action selector="didTappedLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bw8-wH-NyZ"/>
-                                </connections>
-                            </button>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mtb-qe-TMx" customClass="FirstEnterView" customModule="JogTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Y5N-Lq-ScS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-41" id="9l4-ds-2Pt"/>
-                            <constraint firstItem="Idd-jy-c4o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k2F-8B-6Af"/>
-                            <constraint firstItem="Idd-jy-c4o" firstAttribute="top" secondItem="Y5N-Lq-ScS" secondAttribute="bottom" constant="103" id="qCs-mm-7Oo"/>
-                            <constraint firstItem="Y5N-Lq-ScS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="x60-yk-oyh"/>
+                            <constraint firstAttribute="trailing" secondItem="qxB-Mo-y9w" secondAttribute="trailing" id="Ft0-9J-8ai"/>
+                            <constraint firstAttribute="trailing" secondItem="Mtb-qe-TMx" secondAttribute="trailing" id="IwZ-Z5-0on"/>
+                            <constraint firstItem="qxB-Mo-y9w" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RHf-72-4AS"/>
+                            <constraint firstAttribute="bottom" secondItem="Mtb-qe-TMx" secondAttribute="bottom" id="Xrk-yy-1fv"/>
+                            <constraint firstItem="Mtb-qe-TMx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Z2B-Y1-YaT"/>
+                            <constraint firstItem="Mtb-qe-TMx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ZFA-jo-NWM"/>
+                            <constraint firstItem="qxB-Mo-y9w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tYQ-sb-vnY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="loginButton" destination="Idd-jy-c4o" id="tq0-aH-f6E"/>
-                        <outlet property="loginButtonHeightConstraint" destination="sTe-Qa-Jbh" id="qoF-Lz-EJp"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="119"/>
+            <point key="canvasLocation" x="132" y="118.29085457271366"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bearFace" width="160" height="150"/>
-    </resources>
 </document>

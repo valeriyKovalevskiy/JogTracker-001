@@ -18,6 +18,13 @@
 		78D90C4B23C88F820013D11D /* UIFont+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C4A23C88F820013D11D /* UIFont+Addition.swift */; };
 		78D90C4D23C88F910013D11D /* UIDevice+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C4C23C88F910013D11D /* UIDevice+Addition.swift */; };
 		78D90C5223C897F30013D11D /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C5123C897F30013D11D /* LoginScreenViewModel.swift */; };
+		78D90C5523C89C640013D11D /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C5423C89C640013D11D /* MainMenuViewController.swift */; };
+		78D90C5723C89C720013D11D /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78D90C5623C89C720013D11D /* MainMenu.storyboard */; };
+		78D90C5923C89C820013D11D /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C5823C89C820013D11D /* MainMenuViewModel.swift */; };
+		78D90C5E23C8A2D20013D11D /* UpperNavigationPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78D90C5D23C8A2D20013D11D /* UpperNavigationPanel.xib */; };
+		78D90C6023C8A8AD0013D11D /* UpperNavigationPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C5F23C8A8AD0013D11D /* UpperNavigationPanel.swift */; };
+		78D90C6423C8B9230013D11D /* FirstEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C6323C8B9230013D11D /* FirstEnterView.swift */; };
+		78D90C6623C8B9350013D11D /* FirstEnterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78D90C6523C8B9350013D11D /* FirstEnterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +41,13 @@
 		78D90C4A23C88F820013D11D /* UIFont+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Addition.swift"; sourceTree = "<group>"; };
 		78D90C4C23C88F910013D11D /* UIDevice+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Addition.swift"; sourceTree = "<group>"; };
 		78D90C5123C897F30013D11D /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
+		78D90C5423C89C640013D11D /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		78D90C5623C89C720013D11D /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		78D90C5823C89C820013D11D /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
+		78D90C5D23C8A2D20013D11D /* UpperNavigationPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpperNavigationPanel.xib; sourceTree = "<group>"; };
+		78D90C5F23C8A8AD0013D11D /* UpperNavigationPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperNavigationPanel.swift; sourceTree = "<group>"; };
+		78D90C6323C8B9230013D11D /* FirstEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstEnterView.swift; sourceTree = "<group>"; };
+		78D90C6523C8B9350013D11D /* FirstEnterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstEnterView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +84,8 @@
 				78D90C3223C88C3A0013D11D /* SceneDelegate.swift */,
 				78D90C4F23C897AD0013D11D /* LaunchScreen */,
 				78D90C4E23C897870013D11D /* LoginScreen */,
+				78D90C5323C89C390013D11D /* MainMenu */,
+				78D90C5A23C8A1D60013D11D /* UIElements */,
 				78D90C4723C88F620013D11D /* Additions */,
 				78D90C3C23C88C3D0013D11D /* Assets.xcassets */,
 				78D90C4123C88C3D0013D11D /* Info.plist */,
@@ -104,6 +120,43 @@
 				78D90C3E23C88C3D0013D11D /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		78D90C5323C89C390013D11D /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				78D90C5423C89C640013D11D /* MainMenuViewController.swift */,
+				78D90C5623C89C720013D11D /* MainMenu.storyboard */,
+				78D90C5823C89C820013D11D /* MainMenuViewModel.swift */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		78D90C5A23C8A1D60013D11D /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				78D90C6223C8B9110013D11D /* FirstEnterView */,
+				78D90C6123C8B7AD0013D11D /* UpperNavigationPanel */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		78D90C6123C8B7AD0013D11D /* UpperNavigationPanel */ = {
+			isa = PBXGroup;
+			children = (
+				78D90C5F23C8A8AD0013D11D /* UpperNavigationPanel.swift */,
+				78D90C5D23C8A2D20013D11D /* UpperNavigationPanel.xib */,
+			);
+			path = UpperNavigationPanel;
+			sourceTree = "<group>";
+		};
+		78D90C6223C8B9110013D11D /* FirstEnterView */ = {
+			isa = PBXGroup;
+			children = (
+				78D90C6323C8B9230013D11D /* FirstEnterView.swift */,
+				78D90C6523C8B9350013D11D /* FirstEnterView.xib */,
+			);
+			path = FirstEnterView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +217,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78D90C5723C89C720013D11D /* MainMenu.storyboard in Resources */,
 				78D90C4023C88C3D0013D11D /* LaunchScreen.storyboard in Resources */,
+				78D90C6623C8B9350013D11D /* FirstEnterView.xib in Resources */,
+				78D90C5E23C8A2D20013D11D /* UpperNavigationPanel.xib in Resources */,
 				78D90C3D23C88C3D0013D11D /* Assets.xcassets in Resources */,
 				78D90C3823C88C3A0013D11D /* Main.storyboard in Resources */,
 			);
@@ -177,11 +233,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78D90C5523C89C640013D11D /* MainMenuViewController.swift in Sources */,
 				78D90C4B23C88F820013D11D /* UIFont+Addition.swift in Sources */,
+				78D90C5923C89C820013D11D /* MainMenuViewModel.swift in Sources */,
 				78D90C3523C88C3A0013D11D /* ViewController.swift in Sources */,
+				78D90C6423C8B9230013D11D /* FirstEnterView.swift in Sources */,
 				78D90C5223C897F30013D11D /* LoginScreenViewModel.swift in Sources */,
 				78D90C3123C88C3A0013D11D /* AppDelegate.swift in Sources */,
 				78D90C4923C88F740013D11D /* UIColor+Addition.swift in Sources */,
+				78D90C6023C8A8AD0013D11D /* UpperNavigationPanel.swift in Sources */,
 				78D90C3323C88C3A0013D11D /* SceneDelegate.swift in Sources */,
 				78D90C4D23C88F910013D11D /* UIDevice+Addition.swift in Sources */,
 				78D90C3B23C88C3A0013D11D /* JogTracker.xcdatamodeld in Sources */,
