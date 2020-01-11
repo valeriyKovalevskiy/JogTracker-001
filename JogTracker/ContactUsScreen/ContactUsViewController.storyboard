@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Contact Us View Controller-->
+        <scene sceneID="TWi-tw-xoR">
+            <objects>
+                <viewController storyboardIdentifier="ContactUsViewController" id="EjY-Yu-r5l" customClass="ContactUsViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p6b-va-ZIj"/>
+                        <viewControllerLayoutGuide type="bottom" id="FGV-1s-RzI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Amo-xy-mig">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Gh-F1-uEE" customClass="UpperNavigationPanel" customModule="JogTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="OLk-9i-A18"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6eA-Dy-4o9">
+                                <rect key="frame" x="25" y="101" width="325" height="261.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc9-Km-fmD">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="JrP-fx-76e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jzg-tn-B9X">
+                                        <rect key="frame" x="0.0" y="160" width="325" height="101.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact number" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScU-Ug-DzJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6Z-oT-O3Q">
+                                                <rect key="frame" x="0.0" y="40.5" width="325" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Web page" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbF-eN-tfJ">
+                                                <rect key="frame" x="0.0" y="81" width="325" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Jzg-tn-B9X" firstAttribute="top" secondItem="bc9-Km-fmD" secondAttribute="bottom" constant="130" id="bN9-rd-KBo"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Gh-F1-uEE" firstAttribute="top" secondItem="Amo-xy-mig" secondAttribute="top" id="5Uu-DS-6be"/>
+                            <constraint firstAttribute="trailing" secondItem="6eA-Dy-4o9" secondAttribute="trailing" constant="25" id="MNe-VK-A4U"/>
+                            <constraint firstItem="6eA-Dy-4o9" firstAttribute="leading" secondItem="Amo-xy-mig" secondAttribute="leading" constant="25" id="ecp-cn-a0a"/>
+                            <constraint firstAttribute="trailing" secondItem="8Gh-F1-uEE" secondAttribute="trailing" id="gfe-7n-kMg"/>
+                            <constraint firstItem="6eA-Dy-4o9" firstAttribute="top" secondItem="8Gh-F1-uEE" secondAttribute="bottom" constant="24" id="w3O-mf-xct"/>
+                            <constraint firstItem="8Gh-F1-uEE" firstAttribute="leading" secondItem="Amo-xy-mig" secondAttribute="leading" id="wO8-Po-yYU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="g6Z-oT-O3Q" id="Ktb-dl-AJu"/>
+                        <outlet property="numberLabel" destination="ScU-Ug-DzJ" id="xBk-kk-vcX"/>
+                        <outlet property="titleLabel" destination="bc9-Km-fmD" id="8Dx-E0-AX5"/>
+                        <outlet property="webpageLabel" destination="KbF-eN-tfJ" id="uH8-GB-Oza"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IUy-3g-Cri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.5999999999999996" y="102.99850074962519"/>
+        </scene>
+    </scenes>
+</document>

@@ -51,6 +51,10 @@ class UpperNavigationPanel: UIView {
     //MARK: - Actions
     @IBAction func didTappedMenuButton(_ sender: UIButton) {
         print("hello")
+        let mainMenuViewController = UIStoryboard(name: "MainMenuViewController", bundle: nil)
+        let debugVC = mainMenuViewController.instantiateViewController(withIdentifier: "MainMenuViewController")
+        (UIApplication.topViewController() as AnyObject).present(debugVC, animated: true, completion: nil)
+        
     }
     
     @IBAction func didTappedFilterButton(_ sender: UIButton) {

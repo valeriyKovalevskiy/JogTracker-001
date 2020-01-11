@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Info View Controller-->
+        <scene sceneID="xO2-tX-qIi">
+            <objects>
+                <viewController storyboardIdentifier="InfoViewController" id="OGx-kT-QDT" customClass="InfoViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="epO-Cw-zt6"/>
+                        <viewControllerLayoutGuide type="bottom" id="oDA-Ep-PGv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b7R-z4-Qd4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZ7-fh-tAE" customClass="UpperNavigationPanel" customModule="JogTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="KDL-pY-IaX"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TwM-Il-ByN">
+                                <rect key="frame" x="25" y="101" width="325" height="566"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LF-Ux-KcD">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="BXz-et-UD9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADm-dR-5UC">
+                                        <rect key="frame" x="0.0" y="30" width="325" height="536"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="TwM-Il-ByN" secondAttribute="trailing" constant="25" id="0DT-OS-0Gi"/>
+                            <constraint firstItem="TwM-Il-ByN" firstAttribute="leading" secondItem="b7R-z4-Qd4" secondAttribute="leading" constant="25" id="Baw-7R-npT"/>
+                            <constraint firstAttribute="bottom" secondItem="TwM-Il-ByN" secondAttribute="bottom" id="Cvj-66-H4l"/>
+                            <constraint firstItem="UZ7-fh-tAE" firstAttribute="top" secondItem="b7R-z4-Qd4" secondAttribute="top" id="eqH-71-cf8"/>
+                            <constraint firstItem="TwM-Il-ByN" firstAttribute="top" secondItem="UZ7-fh-tAE" secondAttribute="bottom" constant="24" id="phS-yB-9E2"/>
+                            <constraint firstAttribute="trailing" secondItem="UZ7-fh-tAE" secondAttribute="trailing" id="u9v-QD-tDo"/>
+                            <constraint firstItem="UZ7-fh-tAE" firstAttribute="leading" secondItem="b7R-z4-Qd4" secondAttribute="leading" id="wO2-yE-nHp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="infoTextView" destination="ADm-dR-5UC" id="HSU-nP-9JY"/>
+                        <outlet property="titleLabel" destination="1LF-Ux-KcD" id="5LZ-Nf-kdr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAi-hR-Fhs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="124.58770614692655"/>
+        </scene>
+    </scenes>
+</document>

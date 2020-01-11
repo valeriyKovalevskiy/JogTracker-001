@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Menu View Controller-->
+        <scene sceneID="g9V-JP-zmY">
+            <objects>
+                <viewController storyboardIdentifier="MainMenuViewController" modalPresentationStyle="fullScreen" id="GUs-nh-nLv" customClass="MainMenuViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BQX-TF-YbK"/>
+                        <viewControllerLayoutGuide type="bottom" id="g1H-Hi-wMM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hjf-mR-wEj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96E-Qa-ONh">
+                                <rect key="frame" x="102.5" y="217.5" width="170" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1P-6k-DkC">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="cbX-4W-WbI"/>
+                                        </constraints>
+                                        <state key="normal" title="Jogs"/>
+                                        <connections>
+                                            <action selector="didTappedJogsButton:" destination="GUs-nh-nLv" eventType="touchUpInside" id="NBr-Xl-JWQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLW-VQ-RrA">
+                                        <rect key="frame" x="0.0" y="60" width="170" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Rhk-W4-fvB"/>
+                                        </constraints>
+                                        <state key="normal" title="Info"/>
+                                        <connections>
+                                            <action selector="didTappedInfoButton:" destination="GUs-nh-nLv" eventType="touchUpInside" id="mwj-J7-0z4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSU-CT-bes">
+                                        <rect key="frame" x="0.0" y="120" width="170" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="jh8-vD-pw6"/>
+                                        </constraints>
+                                        <state key="normal" title="Contact us"/>
+                                        <connections>
+                                            <action selector="didTappedContactUsButton:" destination="GUs-nh-nLv" eventType="touchUpInside" id="VX7-md-nNg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="7UJ-Ao-yl1"/>
+                                    <constraint firstAttribute="height" constant="150" id="owX-K8-i0a"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9E-l1-iMq" customClass="UpperNavigationPanel" customModule="JogTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="fg1-rq-GkT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="96E-Qa-ONh" firstAttribute="centerY" secondItem="Hjf-mR-wEj" secondAttribute="centerY" constant="-41" id="0Gj-To-Z5n"/>
+                            <constraint firstItem="l9E-l1-iMq" firstAttribute="top" secondItem="Hjf-mR-wEj" secondAttribute="topMargin" id="0QC-M9-C6N"/>
+                            <constraint firstAttribute="trailing" secondItem="l9E-l1-iMq" secondAttribute="trailing" id="Moc-5U-oFy"/>
+                            <constraint firstItem="l9E-l1-iMq" firstAttribute="leading" secondItem="Hjf-mR-wEj" secondAttribute="leading" id="go7-xX-79M"/>
+                            <constraint firstItem="96E-Qa-ONh" firstAttribute="centerX" secondItem="Hjf-mR-wEj" secondAttribute="centerX" id="lOs-wO-n5k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contactUsButton" destination="hSU-CT-bes" id="gfS-ma-D2Q"/>
+                        <outlet property="infoButton" destination="lLW-VQ-RrA" id="LNd-hz-N04"/>
+                        <outlet property="jogsButton" destination="S1P-6k-DkC" id="iQI-DU-tQl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HnU-FU-emS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="99.400299850074973"/>
+        </scene>
+    </scenes>
+</document>
