@@ -19,6 +19,11 @@ class ContactUsViewController: UIViewController {
     let numberLabelText = "375 (33) 902-15-31"
     let emailLabelText = "Kovalevskiy2021@gmail.com"
     let webpageLabelText = "github.com"
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -10,7 +10,10 @@
             <connections>
                 <outlet property="backgroundView" destination="9bz-p4-HXD" id="zUy-G3-Vi4"/>
                 <outlet property="filterButton" destination="Ssa-rC-HHH" id="xI1-aW-NK9"/>
+                <outlet property="logoImageView" destination="a6r-uY-vRk" id="Y2j-Qw-t0s"/>
                 <outlet property="menuButton" destination="Gpe-6E-fRu" id="1lb-Ud-nB2"/>
+                <outlet property="menuButtonHeightConstraint" destination="1ad-MC-pc1" id="C5K-x8-fmd"/>
+                <outlet property="menuButtonWidthConstraint" destination="BKl-KJ-AWM" id="xud-OQ-EOy"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

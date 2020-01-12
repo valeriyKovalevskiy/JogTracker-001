@@ -14,6 +14,10 @@ class UpperNavigationPanel: UIView {
     @IBOutlet private weak var menuButton: UIButton!
     @IBOutlet private weak var filterButton: UIButton!
     @IBOutlet private weak var backgroundView: UIView!
+    @IBOutlet private weak var logoImageView: UIImageView!
+    @IBOutlet weak var menuButtonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var menuButtonWidthConstraint: NSLayoutConstraint!
+    
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -22,8 +26,9 @@ class UpperNavigationPanel: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
         createView()
-        setupView()
+        setupUpperPanelState()
     }
     
     //MARK: - Private methods
@@ -31,7 +36,6 @@ class UpperNavigationPanel: UIView {
         let view = loadFromNib()
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
         addSubview(view)
     }
     
@@ -43,18 +47,37 @@ class UpperNavigationPanel: UIView {
         
         return view
     }
+            
+    private func setupUpperPanelState() {
+        guard UserDefault.getBool(UserDefault.Keys.isMenuOpen) else { return setupUnactiveState() }
+        
+        filterButton.isHidden = true
+        setupActiveState()
+    }
     
-    private func setupView() {
+    private func setupUnactiveState() {
+        menuButton.setBackgroundImage(UIImage(named: "menuButton"), for: .normal)
         backgroundView.backgroundColor = .appleGreen
+        guard UserDefault.getBool(UserDefault.Keys.tableViewContainsData) &&
+            UserDefault.getBool(UserDefault.Keys.isTableViewController) else { return }
+        filterButton.isHidden = false
+    }
+
+    private func setupActiveState() {
+        menuButtonHeightConstraint.constant = 21
+        menuButtonWidthConstraint.constant = 21
+        menuButton.setBackgroundImage(UIImage(systemName: "xmark"), for: .normal)
+        menuButton.tintColor = .greyish
+        backgroundView.backgroundColor = .clear
+        logoImageView.image = UIImage(named: "logoActive")
     }
 
     //MARK: - Actions
     @IBAction func didTappedMenuButton(_ sender: UIButton) {
-        print("hello")
+        UserDefault.setBool(true, key: UserDefault.Keys.isMenuOpen)
         let mainMenuViewController = UIStoryboard(name: "MainMenuViewController", bundle: nil)
-        let debugVC = mainMenuViewController.instantiateViewController(withIdentifier: "MainMenuViewController")
-        (UIApplication.topViewController() as AnyObject).present(debugVC, animated: true, completion: nil)
-        
+        let menuVC = mainMenuViewController.instantiateViewController(withIdentifier: "MainMenuViewController")
+        (UIApplication.topViewController() as AnyObject).present(menuVC, animated: true, completion: nil)
     }
     
     @IBAction func didTappedFilterButton(_ sender: UIButton) {

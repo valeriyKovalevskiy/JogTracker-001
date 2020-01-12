@@ -45,18 +45,37 @@ class MainMenuViewController: UIViewController {
     }
     
     @IBAction func didTappedJogsButton(_ sender: UIButton) {
+        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
+        jogsButton.tintColor = .appleGreen
+        guard UserDefault.getBool(UserDefault.Keys.isLoggedIn) else { return showLoginScreen() }
+        showJogsScreen()
     }
-    @IBAction func didTappedInfoButton(_ sender: UIButton) {
+    
+    func showLoginScreen() {
+        let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)
+        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "ViewController")
+        (UIApplication.topViewController() as AnyObject).present(controller, animated: true, completion: nil)
+    }
+    func showJogsScreen() {
+        let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)
+        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "JogsScreenViewController")
+        (UIApplication.topViewController() as AnyObject).present(controller, animated: true, completion: nil)
+    }
+    
+    @IBAction func didTappedInfoButton(_ : UIButton) {
+        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
+        infoButton.tintColor = .appleGreen
         let mainMenuViewController = UIStoryboard(name: "InfoViewController", bundle: nil)
-        let debugVC = mainMenuViewController.instantiateViewController(withIdentifier: "InfoViewController")
-        (UIApplication.topViewController() as AnyObject).present(debugVC, animated: true, completion: nil)
-        
+        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "InfoViewController")
+        show(controller, sender: infoButton)
     }
-    @IBAction func didTappedContactUsButton(_ sender: UIButton) {
+    @IBAction func didTappedContactUsButton(_ : UIButton) {
+        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
+        contactUsButton.tintColor = .appleGreen
         let mainMenuViewController = UIStoryboard(name: "ContactUsViewController", bundle: nil)
-        let debugVC = mainMenuViewController.instantiateViewController(withIdentifier: "ContactUsViewController")
-        (UIApplication.topViewController() as AnyObject).present(debugVC, animated: true, completion: nil)
-        
+        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "ContactUsViewController")
+        show(controller, sender: contactUsButton)
+
     }
     
 }

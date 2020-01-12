@@ -14,9 +14,14 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 25.0, weight: .bold)
     }
     
+    class var textStyle1: UIFont {
+        return UIFont.systemFont(ofSize: 24.0, weight: .regular)
+    }
+    
     class var textStyle2: UIFont {
         return UIFont.systemFont(ofSize: 18.0, weight: .bold)
     }
+    
     
     class var textStyle3: UIFont {
         return UIFont.systemFont(ofSize: 14.0, weight: .regular)
@@ -33,6 +38,9 @@ extension UIFont {
     class var textStyle6: UIFont {
         return UIFont.systemFont(ofSize: 13.0, weight: .regular)
     }
-
+    
+    class var textStyle7: UIFont {
+        return UIFont.systemFont(ofSize: 12.6, weight: .bold)
+    }
     
 }

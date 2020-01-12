@@ -9,7 +9,7 @@
         <!--Info View Controller-->
         <scene sceneID="xO2-tX-qIi">
             <objects>
-                <viewController storyboardIdentifier="InfoViewController" id="OGx-kT-QDT" customClass="InfoViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoViewController" modalPresentationStyle="fullScreen" id="OGx-kT-QDT" customClass="InfoViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="epO-Cw-zt6"/>
                         <viewControllerLayoutGuide type="bottom" id="oDA-Ep-PGv"/>

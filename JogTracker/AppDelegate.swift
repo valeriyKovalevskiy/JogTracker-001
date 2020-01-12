@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
+//        UserDefault.setBool(true, key: UserDefault.Keys.isJogsCountZero)
         return true
     }
 
@@ -80,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension UIApplication {
-    public class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    public class func topViewController(_ base: UIViewController? = UIApplication.shared.windows.first{ $0.isKeyWindow}?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }

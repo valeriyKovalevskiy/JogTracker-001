@@ -9,7 +9,7 @@
         <!--Main Menu View Controller-->
         <scene sceneID="g9V-JP-zmY">
             <objects>
-                <viewController storyboardIdentifier="MainMenuViewController" modalPresentationStyle="fullScreen" id="GUs-nh-nLv" customClass="MainMenuViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainMenuViewController" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="GUs-nh-nLv" customClass="MainMenuViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BQX-TF-YbK"/>
                         <viewControllerLayoutGuide type="bottom" id="g1H-Hi-wMM"/>

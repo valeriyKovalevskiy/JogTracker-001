@@ -9,7 +9,7 @@
         <!--Contact Us View Controller-->
         <scene sceneID="TWi-tw-xoR">
             <objects>
-                <viewController storyboardIdentifier="ContactUsViewController" id="EjY-Yu-r5l" customClass="ContactUsViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactUsViewController" modalPresentationStyle="fullScreen" id="EjY-Yu-r5l" customClass="ContactUsViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p6b-va-ZIj"/>
                         <viewControllerLayoutGuide type="bottom" id="FGV-1s-RzI"/>
