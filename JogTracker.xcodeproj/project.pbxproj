@@ -98,10 +98,11 @@
 			children = (
 				78D90C3023C88C3A0013D11D /* AppDelegate.swift */,
 				78D90C3223C88C3A0013D11D /* SceneDelegate.swift */,
+				78D90C3623C88C3A0013D11D /* Main.storyboard */,
 				78D90C4F23C897AD0013D11D /* LaunchScreen */,
 				78D90C4E23C897870013D11D /* LoginScreen */,
-				78D90C5323C89C390013D11D /* MainMenu */,
 				78DB763E23CB203A009C496A /* JogsScreen */,
+				78D90C5323C89C390013D11D /* MainMenu */,
 				78D90C7523C90DBD0013D11D /* InfoScreen */,
 				78D90C7623C90DC70013D11D /* ContactUsScreen */,
 				78D90C5A23C8A1D60013D11D /* UIElements */,
@@ -128,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				78D90C3423C88C3A0013D11D /* ViewController.swift */,
-				78D90C3623C88C3A0013D11D /* Main.storyboard */,
 				78D90C5123C897F30013D11D /* LoginScreenViewModel.swift */,
 				78DB763C23CB194C009C496A /* LoginWindowViewController.swift */,
 			);

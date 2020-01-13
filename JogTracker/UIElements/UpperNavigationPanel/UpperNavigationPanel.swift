@@ -14,10 +14,11 @@ class UpperNavigationPanel: UIView {
     @IBOutlet private weak var menuButton: UIButton!
     @IBOutlet private weak var backgroundView: UIView!
     @IBOutlet private weak var logoImageView: UIImageView!
-    @IBOutlet weak var menuButtonHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var menuButtonWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var menuButtonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var menuButtonWidthConstraint: NSLayoutConstraint!
     
-    static var menuState: ActivityState?
+    private var menuButtonState: ActivityState?
+    
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,10 +27,9 @@ class UpperNavigationPanel: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        UpperNavigationPanel.menuState = .unactive
         createView()
         setupUpperPanelState()
-        setupMenuActivityState()
+        switchUpperPanelActivityState()
     }
     
     //MARK: - Private methods
@@ -49,17 +49,19 @@ class UpperNavigationPanel: UIView {
         return view
     }
             
-    private func setupUpperPanelState() { //заменить все на свич актив анактив
-        guard UserDefault.getBool(UserDefault.Keys.isMenuOpen) else { return UpperNavigationPanel.menuState = .unactive }
-        UpperNavigationPanel.menuState = .active
+    private func setupUpperPanelState() {
+        
+        guard UserDefault.getBool(UserDefault.Keys.isMenuOpen) else { return menuButtonState = .unactive }
+        
+        menuButtonState = .active
     }
     
-    private func setupUnactiveState() {
+    private func upperPanelUnactiveState() {
         menuButton.setBackgroundImage(UIImage(named: "menuButton"), for: .normal)
         backgroundView.backgroundColor = .appleGreen
     }
 
-    private func setupActiveState() {
+    private func upperPanelActiveState() {
         menuButtonHeightConstraint.constant = 21
         menuButtonWidthConstraint.constant = 21
         menuButton.setBackgroundImage(UIImage(systemName: "xmark"), for: .normal)
@@ -68,39 +70,42 @@ class UpperNavigationPanel: UIView {
         logoImageView.image = UIImage(named: "logoActive")
     }
     
-    private func setupMenuActivityState() {
-        switch UpperNavigationPanel.menuState {
+    private func switchUpperPanelActivityState() {
+        switch menuButtonState {
         case .active:
-            setupActiveState()
-            
+            upperPanelActiveState()
         case .unactive:
-            setupUnactiveState()
-        case .none:
+            upperPanelUnactiveState()
+        default:
             break
         }
     }
-
+    
+    private func closeMenu() {
+        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
+        let destinationStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
+        if UserDefault.getBool(UserDefault.Keys.isLoggedIn) {
+            let destinationVC = destinationStoryboard.instantiateViewController(withIdentifier: "JogsScreenViewController")
+            (UIApplication.topViewController() as AnyObject).present(destinationVC, animated: true, completion: nil)
+        } else {
+            let destinationVC = destinationStoryboard.instantiateViewController(withIdentifier: "ViewController")
+            (UIApplication.topViewController() as AnyObject).present(destinationVC, animated: true, completion: nil)
+        }
+    }
+    
+    private func openMenu() {
+        UserDefault.setBool(true, key: UserDefault.Keys.isMenuOpen)
+        let destinationStoryboard = UIStoryboard(name: "MainMenuViewController", bundle: nil)
+        let destinationVC = destinationStoryboard.instantiateViewController(withIdentifier: "MainMenuViewController")
+        (UIApplication.topViewController() as AnyObject).present(destinationVC, animated: true, completion: nil)
+    }
+    
     //MARK: - Actions
     @IBAction func didTappedMenuButton(_ sender: UIButton) {
-
         
-        if menuButton.backgroundImage(for: .normal) == UIImage(systemName: "xmark") {
-            let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)
-            
-            if UserDefault.getBool(UserDefault.Keys.isLoggedIn) {
-                let menuVC = mainMenuViewController.instantiateViewController(withIdentifier: "JogsScreenViewController")
-                (UIApplication.topViewController() as AnyObject).present(menuVC, animated: false, completion: nil)
-            } else {
-                let menuVC = mainMenuViewController.instantiateViewController(withIdentifier: "ViewController")
-                (UIApplication.topViewController() as AnyObject).present(menuVC, animated: false, completion: nil)
-            }
-
-        } else {
-            UserDefault.setBool(true, key: UserDefault.Keys.isMenuOpen)
-            let mainMenuViewController = UIStoryboard(name: "MainMenuViewController", bundle: nil)
-            let menuVC = mainMenuViewController.instantiateViewController(withIdentifier: "MainMenuViewController")
-            (UIApplication.topViewController() as AnyObject).present(menuVC, animated: false, completion: nil)
-        }
+        guard menuButtonState == .active else { return openMenu() }
         
+        closeMenu()
     }
 }

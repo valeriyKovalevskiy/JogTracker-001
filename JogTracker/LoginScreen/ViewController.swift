@@ -27,7 +27,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         self.navigationController?.isNavigationBarHidden = true
-        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
         setupView()
     }
         

@@ -11,13 +11,24 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
-//        UserDefault.setBool(true, key: UserDefault.Keys.isJogsCountZero)
+        
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//        let viewController: UIViewController?
+//        if UserDefault.getBool(UserDefault.Keys.isLoggedIn) {
+//            viewController = storyboard.instantiateViewController(withIdentifier: "JogsScreenViewController") as! JogsScreenViewController
+//        } else {
+//            viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+//        }
+//
+//        self.window?.rootViewController = viewController
+//        self.window?.makeKeyAndVisible()
+
         return true
     }
 

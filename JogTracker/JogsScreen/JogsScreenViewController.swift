@@ -38,7 +38,6 @@ class JogsScreenViewController: UIViewController {
         super.viewDidLoad()
         
         
-        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
         filterViewHeightConstraint.constant = 0
         filterView.isHidden = true
         firstEnter()

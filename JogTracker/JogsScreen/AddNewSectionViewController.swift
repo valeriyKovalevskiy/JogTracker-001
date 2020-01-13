@@ -32,7 +32,6 @@ class AddNewSectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
         setupNewSectionView()
     }
     
