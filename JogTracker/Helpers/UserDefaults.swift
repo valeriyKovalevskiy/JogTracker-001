@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum ActivityState {
+    case active
+    case unactive
+}
+
 class UserDefault {
     
     static var defaults = UserDefaults.standard
@@ -35,7 +40,6 @@ class UserDefault {
     enum Keys: String {
         case isMenuOpen = "menuIsOpen"
         case tableViewContainsData = "tableViewContainsData"
-        case isTableViewController = "isTableViewController"
         case isLoggedIn = "isLoggedIn"
     }
     

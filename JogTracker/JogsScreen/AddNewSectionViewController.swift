@@ -2,7 +2,7 @@
 //  AddNewSectionViewController.swift
 //  JogTracker
 //
-//  Created by валерий on 1/12/20.
+//  Created by Valeriy Kovalevskiy on 1/12/20.
 //  Copyright © 2020 ValeriyKovalevskiy. All rights reserved.
 //
 
@@ -25,11 +25,15 @@ class AddNewSectionViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dateTextField: UITextField!
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefault.setBool(false, key: UserDefault.Keys.isTableViewController)
+        
+        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
         setupNewSectionView()
-
     }
     
     func setupNewSectionView() {
@@ -53,20 +57,27 @@ class AddNewSectionViewController: UIViewController {
         saveButton.tintColor = .whiteThree
         saveButton.setTitle("Save", for: .normal)
         saveButton.backgroundColor = .clear
-        
-        
-        
+
     }
     
-    
-    
-    
-    
+    private func checkTextFieldsAreNotEmpty() {
+        if distanceTextField.text == "" { distanceLabel.textColor = .red }
+        else { distanceLabel.textColor = .black }
+        
+        if timeTextField.text == "" { timeLabel.textColor = .red }
+        else { timeLabel.textColor = .black }
+        
+        if dateTextField.text == "" { dateLabel.textColor = .red }
+        else { dateLabel.textColor = .black }
+    }
     
     @IBAction func didTappedSaveButton(_ sender: UIButton) {
-        //duard not empty
+        checkTextFieldsAreNotEmpty()
+        guard distanceTextField.text != "" && timeTextField.text != "" && dateTextField.text != "" else { return }
+        
         UserDefault.setBool(true, key: UserDefault.Keys.tableViewContainsData)
+        let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)
+        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "JogsScreenViewController")
+        (UIApplication.topViewController() as AnyObject).present(controller, animated: true, completion: nil)
     }
-
-    
 }

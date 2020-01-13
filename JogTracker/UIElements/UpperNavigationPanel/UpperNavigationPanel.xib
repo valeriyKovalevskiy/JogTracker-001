@@ -9,7 +9,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpperNavigationPanel" customModule="JogTracker" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundView" destination="9bz-p4-HXD" id="zUy-G3-Vi4"/>
-                <outlet property="filterButton" destination="Ssa-rC-HHH" id="xI1-aW-NK9"/>
                 <outlet property="logoImageView" destination="a6r-uY-vRk" id="Y2j-Qw-t0s"/>
                 <outlet property="menuButton" destination="Gpe-6E-fRu" id="1lb-Ud-nB2"/>
                 <outlet property="menuButtonHeightConstraint" destination="1ad-MC-pc1" id="C5K-x8-fmd"/>
@@ -40,25 +39,11 @@
                         <action selector="didTappedMenuButton:" destination="-1" eventType="touchUpInside" id="61j-ax-8xI"/>
                     </connections>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ssa-rC-HHH" userLabel="filterButton">
-                    <rect key="frame" x="271" y="25.5" width="26" height="26"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="26" id="qGl-q8-QAj"/>
-                        <constraint firstAttribute="width" constant="26" id="rT6-Bg-Cga"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="filter"/>
-                    <state key="selected" backgroundImage="filterActive"/>
-                    <connections>
-                        <action selector="didTappedFilterButton:" destination="-1" eventType="touchUpInside" id="C74-dU-IVS"/>
-                    </connections>
-                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="a6r-uY-vRk" firstAttribute="centerY" secondItem="9bz-p4-HXD" secondAttribute="centerY" id="4Pr-pR-lhA"/>
                 <constraint firstItem="a6r-uY-vRk" firstAttribute="leading" secondItem="9bz-p4-HXD" secondAttribute="leading" constant="25" id="IfY-ed-GCV"/>
                 <constraint firstAttribute="trailing" secondItem="Gpe-6E-fRu" secondAttribute="trailing" constant="25" id="JGA-U5-Owj"/>
-                <constraint firstItem="Ssa-rC-HHH" firstAttribute="centerY" secondItem="9bz-p4-HXD" secondAttribute="centerY" id="i1R-dt-31D"/>
-                <constraint firstItem="Gpe-6E-fRu" firstAttribute="leading" secondItem="Ssa-rC-HHH" secondAttribute="trailing" constant="25" id="t8c-oH-m1B"/>
                 <constraint firstItem="Gpe-6E-fRu" firstAttribute="centerY" secondItem="9bz-p4-HXD" secondAttribute="centerY" id="y1H-GR-8wp"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -67,8 +52,6 @@
         </view>
     </objects>
     <resources>
-        <image name="filter" width="26" height="26"/>
-        <image name="filterActive" width="39" height="39"/>
         <image name="logo" width="98" height="37"/>
         <image name="menuButton" width="28" height="23"/>
         <image name="xmark" catalog="system" width="64" height="56"/>

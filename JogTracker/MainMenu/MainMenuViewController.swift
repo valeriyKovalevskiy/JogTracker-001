@@ -45,6 +45,7 @@ class MainMenuViewController: UIViewController {
     }
     
     @IBAction func didTappedJogsButton(_ sender: UIButton) {
+
         UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
         jogsButton.tintColor = .appleGreen
         guard UserDefault.getBool(UserDefault.Keys.isLoggedIn) else { return showLoginScreen() }

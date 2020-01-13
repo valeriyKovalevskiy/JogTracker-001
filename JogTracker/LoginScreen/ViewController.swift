@@ -27,11 +27,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         self.navigationController?.isNavigationBarHidden = true
+        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
         setupView()
     }
-
-        
-
         
         private func setupView() {
             loginButton.layer.cornerRadius = loginButtonHeightConstraint.constant / 2

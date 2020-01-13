@@ -12,13 +12,12 @@ class UpperNavigationPanel: UIView {
     
     //MARK: - Outlets
     @IBOutlet private weak var menuButton: UIButton!
-    @IBOutlet private weak var filterButton: UIButton!
     @IBOutlet private weak var backgroundView: UIView!
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet weak var menuButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuButtonWidthConstraint: NSLayoutConstraint!
     
-    
+    static var menuState: ActivityState?
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,8 +26,10 @@ class UpperNavigationPanel: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
+        UpperNavigationPanel.menuState = .unactive
         createView()
         setupUpperPanelState()
+        setupMenuActivityState()
     }
     
     //MARK: - Private methods
@@ -48,19 +49,14 @@ class UpperNavigationPanel: UIView {
         return view
     }
             
-    private func setupUpperPanelState() {
-        guard UserDefault.getBool(UserDefault.Keys.isMenuOpen) else { return setupUnactiveState() }
-        
-        filterButton.isHidden = true
-        setupActiveState()
+    private func setupUpperPanelState() { //заменить все на свич актив анактив
+        guard UserDefault.getBool(UserDefault.Keys.isMenuOpen) else { return UpperNavigationPanel.menuState = .unactive }
+        UpperNavigationPanel.menuState = .active
     }
     
     private func setupUnactiveState() {
         menuButton.setBackgroundImage(UIImage(named: "menuButton"), for: .normal)
         backgroundView.backgroundColor = .appleGreen
-        guard UserDefault.getBool(UserDefault.Keys.tableViewContainsData) &&
-            UserDefault.getBool(UserDefault.Keys.isTableViewController) else { return }
-        filterButton.isHidden = false
     }
 
     private func setupActiveState() {
@@ -71,16 +67,40 @@ class UpperNavigationPanel: UIView {
         backgroundView.backgroundColor = .clear
         logoImageView.image = UIImage(named: "logoActive")
     }
+    
+    private func setupMenuActivityState() {
+        switch UpperNavigationPanel.menuState {
+        case .active:
+            setupActiveState()
+            
+        case .unactive:
+            setupUnactiveState()
+        case .none:
+            break
+        }
+    }
 
     //MARK: - Actions
     @IBAction func didTappedMenuButton(_ sender: UIButton) {
-        UserDefault.setBool(true, key: UserDefault.Keys.isMenuOpen)
-        let mainMenuViewController = UIStoryboard(name: "MainMenuViewController", bundle: nil)
-        let menuVC = mainMenuViewController.instantiateViewController(withIdentifier: "MainMenuViewController")
-        (UIApplication.topViewController() as AnyObject).present(menuVC, animated: true, completion: nil)
-    }
-    
-    @IBAction func didTappedFilterButton(_ sender: UIButton) {
-        print("it's me")
+
+        
+        if menuButton.backgroundImage(for: .normal) == UIImage(systemName: "xmark") {
+            let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)
+            
+            if UserDefault.getBool(UserDefault.Keys.isLoggedIn) {
+                let menuVC = mainMenuViewController.instantiateViewController(withIdentifier: "JogsScreenViewController")
+                (UIApplication.topViewController() as AnyObject).present(menuVC, animated: false, completion: nil)
+            } else {
+                let menuVC = mainMenuViewController.instantiateViewController(withIdentifier: "ViewController")
+                (UIApplication.topViewController() as AnyObject).present(menuVC, animated: false, completion: nil)
+            }
+
+        } else {
+            UserDefault.setBool(true, key: UserDefault.Keys.isMenuOpen)
+            let mainMenuViewController = UIStoryboard(name: "MainMenuViewController", bundle: nil)
+            let menuVC = mainMenuViewController.instantiateViewController(withIdentifier: "MainMenuViewController")
+            (UIApplication.topViewController() as AnyObject).present(menuVC, animated: false, completion: nil)
+        }
+        
     }
 }
