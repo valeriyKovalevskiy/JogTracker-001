@@ -108,7 +108,6 @@
                                         <state key="normal" title="Login!"/>
                                         <connections>
                                             <action selector="didTappedLoginButton:" destination="mTJ-he-0fy" eventType="touchUpInside" id="btt-4A-xWW"/>
-                                            <segue destination="Tku-Xd-eCb" kind="show" id="uGI-yf-jbQ"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0DR-8V-uU8">
@@ -117,7 +116,7 @@
                                             <constraint firstAttribute="height" constant="30" id="rNQ-PQ-kR6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gs1-cc-wVP">
                                         <rect key="frame" x="20" y="130" width="267" height="30"/>
@@ -214,7 +213,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uiR-wO-lSx">
                                 <rect key="frame" x="0.0" y="77" width="375" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfD-yF-qXf" userLabel="date from">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfD-yF-qXf" userLabel="date from">
                                         <rect key="frame" x="29" y="22.5" width="61" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="61" id="cBh-me-DMT"/>
@@ -224,16 +223,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPb-ed-t3Y">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RPb-ed-t3Y">
                                         <rect key="frame" x="106" y="14.5" width="72" height="31"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="Ltq-XN-UU9"/>
                                             <constraint firstAttribute="height" constant="31" id="usR-7c-MSO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO8-iH-6gL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO8-iH-6gL">
                                         <rect key="frame" x="213" y="22.5" width="45" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="X0E-V4-HVc"/>
@@ -243,14 +243,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbf-n9-jTT">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xbf-n9-jTT">
                                         <rect key="frame" x="274" y="14.5" width="72" height="31"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="08h-dl-Tgg"/>
                                             <constraint firstAttribute="width" constant="72" id="P2x-bn-9dd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91754716629999999" green="0.9177046418" blue="0.91753727200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -269,6 +270,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aY1-wa-fit">
                                 <rect key="frame" x="0.0" y="137" width="375" height="530"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Tku-Xd-eCb" id="xe0-MR-zo7"/>
+                                    <outlet property="delegate" destination="Tku-Xd-eCb" id="eK6-0m-e97"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqV-Mb-VEl" userLabel="addNewItemButton">
                                 <rect key="frame" x="298" y="590" width="47" height="47"/>
@@ -368,6 +373,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="2PG-Wh-2ej"/>
                     <connections>
+                        <outlet property="dateFromLabel" destination="xfD-yF-qXf" id="gAi-Ub-hLG"/>
+                        <outlet property="dateFromTextField" destination="RPb-ed-t3Y" id="YQu-uC-U5Y"/>
+                        <outlet property="dateToLabel" destination="RO8-iH-6gL" id="fuR-Ol-F4r"/>
+                        <outlet property="dateToTextField" destination="xbf-n9-jTT" id="O0U-ON-IbT"/>
                         <outlet property="emptyTableView" destination="eeR-bd-9eJ" id="vdV-zM-dSj"/>
                         <outlet property="emptyTableViewButton" destination="e60-9w-vhc" id="uBc-ns-iSB"/>
                         <outlet property="emptyTableViewButtonHeightConstraint" destination="q6U-HH-nBn" id="O09-CI-J0I"/>
@@ -377,6 +386,7 @@
                         <outlet property="filterButtonWidthConstraint" destination="mJI-Ar-c93" id="iZp-K9-hWW"/>
                         <outlet property="filterView" destination="uiR-wO-lSx" id="eCD-ma-zfS"/>
                         <outlet property="filterViewHeightConstraint" destination="W3O-qw-YQR" id="IS5-QQ-DEt"/>
+                        <outlet property="tableView" destination="aY1-wa-fit" id="KWO-h5-IH6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSu-hP-wmH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -435,13 +445,13 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CO3-Ub-l8M">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="kilometers: " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CO3-Ub-l8M">
                                                         <rect key="frame" x="0.0" y="21" width="236" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="31" id="bVb-w5-0WX"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -457,13 +467,13 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWR-f2-COq">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="minutes:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWR-f2-COq">
                                                         <rect key="frame" x="0.0" y="21" width="236" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="31" id="iMG-AS-zs8"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -479,13 +489,13 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24m-Qq-o0v">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="date:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24m-Qq-o0v">
                                                         <rect key="frame" x="0.0" y="21" width="236" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="31" id="7l9-Cn-xCB"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -569,8 +579,8 @@
         <image name="xmark" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XlD-63-y1Y"/>
         <segue reference="ak6-7O-3iv"/>
-        <segue reference="2hG-Xp-C5P"/>
+        <segue reference="XlD-63-y1Y"/>
+        <segue reference="9Et-NQ-0ft"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,39 +9,66 @@
 import UIKit
 
 class JogsScreenViewController: UIViewController {
-    
 
-    
-    var filterMenuState: ActivityState = .unactive
-    var buttonState: ActivityState = .unactive
+    private var filterMenuState: ActivityState = .unactive
+    private var buttonState: ActivityState = .unactive
+    static var tableViewCellData = [TableViewCellData]()
 
-    @IBOutlet weak var filterView: UIView!
-    @IBOutlet weak var filterViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var tableView: UITableView!
+
+    @IBOutlet private weak var emptyTableView: UIView!
+    @IBOutlet private weak var emptyTableViewLabel: UILabel!
+    @IBOutlet private weak var emptyTableViewButton: UIButton!
+    @IBOutlet private weak var emptyTableViewButtonHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var emptyTableView: UIView!
-    @IBOutlet weak var emptyTableViewLabel: UILabel!
-    @IBOutlet weak var emptyTableViewButton: UIButton!
-    @IBOutlet weak var emptyTableViewButtonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var filterView: UIView!
+    @IBOutlet private weak var filterButton: UIButton!
+    @IBOutlet private weak var filterViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var filterButtonWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var filterButtonHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var filterButton: UIButton!
-    @IBOutlet weak var filterButtonWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var filterButtonHeightConstraint: NSLayoutConstraint!
-    
-    private let cellIdentifier = "Cell"
-    private let cellNibName = "JogsTableViewCell"
+    @IBOutlet private weak var dateFromTextField: UITextField!
+    @IBOutlet private weak var dateToTextField: UITextField!
+    @IBOutlet private weak var dateFromLabel: UILabel!
+    @IBOutlet private weak var dateToLabel: UILabel!
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        filterViewHeightConstraint.constant = 0
+        self.hideKeyboardWhenTappedAround()
+        setupFilterView()
+        setupTableView()
         filterView.isHidden = true
         firstEnter()
-//                register(UINib(nibName: cellNibName, bundle: nil), forCellReuseIdentifier: cellIdentifier) tableview
+
+    }
+    
+    private func setupFilterView() {
+        filterViewHeightConstraint.constant = 0
+        dateToTextField.layer.borderColor = UIColor.warmGrey.cgColor
+        dateToTextField.backgroundColor = .whiteThree
+        dateToTextField.layer.cornerRadius = 11
+        dateToTextField.layer.borderWidth = 1
+
+        dateFromTextField.layer.borderColor = UIColor.warmGrey.cgColor
+        dateFromTextField.backgroundColor = .whiteThree
+        dateFromTextField.layer.cornerRadius = 11
+        dateFromTextField.layer.borderWidth = 1
+
+        dateFromLabel.font = .textStyle6
+        dateToLabel.textColor = .darkGray
+        dateToLabel.font = .textStyle6
+        dateFromLabel.textColor = .darkGray
+
+    }
+    
+    private func setupTableView() {
+        let nib = UINib(nibName: "JogsTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "JogsTableViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,20 +113,57 @@ class JogsScreenViewController: UIViewController {
         switch filterMenuState {
         case .unactive:
             filterViewHeightConstraint.constant = 60
-            filterView.isHidden = false
+            showFilterView(view: filterView, hidden: false)
             filterMenuState = .active
         case .active:
+            
             filterViewHeightConstraint.constant = 0
-            filterView.isHidden = true
+            showFilterView(view: filterView, hidden: true)
             filterMenuState = .unactive
         }
     }
-        
+    
+    private func showFilterView(view: UIView, hidden: Bool) {
+        UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            view.isHidden = hidden
+        })
+    }
+    
     @IBAction func didTappedFilterButton(_ sender: UIButton) {
             filterButtonStateChanged()
             filterViewStateChanged()
         }
     }
 
+extension JogsScreenViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return JogsScreenViewController.tableViewCellData.count
+    }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JogsTableViewCell" , for: indexPath) as! JogsTableViewCell
+        let data = JogsScreenViewController.tableViewCellData[indexPath.row]
+        cell.dateLabel.text = "\(data.date)"
+        cell.distanceLabel.text = "\(data.distanse) km"
+        cell.timeLabel.text = "\(data.time) min"
+        cell.speedLabel.text = "\(Int(data.distanse)! / Int(data.time)! / 60) km / h"
+        
+        cell.imgView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 66).isActive = true
+        cell.imgView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+        cell.stackView.leadingAnchor.constraint(equalTo: cell.imgView.trailingAnchor, constant: 50).isActive = true
+        cell.stackView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+        return cell
+    }
+
+}
+
+extension JogsScreenViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 187
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("fgdfgdf")
+    }
+}
 

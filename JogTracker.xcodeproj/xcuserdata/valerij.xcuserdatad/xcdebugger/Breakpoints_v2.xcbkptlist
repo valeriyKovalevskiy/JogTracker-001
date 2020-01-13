@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3E2588A4-3143-46FF-B174-121BAFB56506"
+            uuid = "B816940B-57F3-4F44-9B76-DE20EB4C850B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JogTracker/AppDelegate.swift"
+            filePath = "JogTracker/JogsScreen/JogsScreenViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "firstEnter()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

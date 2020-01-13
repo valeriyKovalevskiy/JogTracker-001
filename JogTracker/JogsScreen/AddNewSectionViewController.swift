@@ -8,7 +8,22 @@
 
 import UIKit
 
+
+struct TableViewCellData {
+    let date: String
+    let distanse: String
+    let time: String
+    
+    init(date: String, distanse: String, time: String) {
+        self.date = date
+        self.distanse = distanse
+        self.time = time
+    }
+}
+
 class AddNewSectionViewController: UIViewController {
+
+    
 
     @IBOutlet weak var newSectionView: UIView!
     
@@ -31,8 +46,9 @@ class AddNewSectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupNewSectionView()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func setupNewSectionView() {
@@ -62,18 +78,19 @@ class AddNewSectionViewController: UIViewController {
     private func checkTextFieldsAreNotEmpty() {
         if distanceTextField.text == "" { distanceLabel.textColor = .red }
         else { distanceLabel.textColor = .black }
-        
         if timeTextField.text == "" { timeLabel.textColor = .red }
         else { timeLabel.textColor = .black }
-        
         if dateTextField.text == "" { dateLabel.textColor = .red }
         else { dateLabel.textColor = .black }
     }
-    
+
     @IBAction func didTappedSaveButton(_ sender: UIButton) {
         checkTextFieldsAreNotEmpty()
+        
         guard distanceTextField.text != "" && timeTextField.text != "" && dateTextField.text != "" else { return }
         
+        let data = [TableViewCellData.init(date: dateTextField.text ?? "", distanse: distanceTextField.text ?? "", time: timeTextField.text ?? "")]
+        JogsScreenViewController.tableViewCellData.append(data.first!)
         UserDefault.setBool(true, key: UserDefault.Keys.tableViewContainsData)
         let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)
         let controller = mainMenuViewController.instantiateViewController(withIdentifier: "JogsScreenViewController")

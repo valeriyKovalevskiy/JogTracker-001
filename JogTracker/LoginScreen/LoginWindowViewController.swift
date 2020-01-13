@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Foundation
 
 class LoginWindowViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
+    
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
     @IBOutlet weak var loginButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginWindowView: UIView!
     @IBOutlet weak var closeButton: UIButton!
@@ -21,7 +24,6 @@ class LoginWindowViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-
     
     let loginButtonTintColor = UIColor.whiteThree
     let loginButtonBorderWidth: CGFloat = 3.0
@@ -30,9 +32,14 @@ class LoginWindowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.hideKeyboardWhenTappedAround()
         self.navigationController?.isNavigationBarHidden = true
         setupView()
+    }
+    
+    private func checkTextFieldsAreNotEmpty() {
+        guard loginTextField.text != "", passwordTextField.text != "" else { return titleLabel.text = "Try again?"}
     }
     
     private func setupView() {
@@ -52,6 +59,13 @@ class LoginWindowViewController: UIViewController {
     }
     
     @IBAction func didTappedLoginButton(_ sender: UIButton) {
+        checkTextFieldsAreNotEmpty()
+        
+        guard loginTextField.text != "" && passwordTextField.text != "" else { return } //поменяется на какой-то другой
+        
         UserDefault.setBool(true, key: UserDefault.Keys.isLoggedIn)
+        let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)
+        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "JogsScreenViewController")
+        (UIApplication.topViewController() as AnyObject).present(controller, animated: true, completion: nil)
     }
 }

@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
+
         // Override point for customization after application launch.
         
 //        self.window = UIWindow(frame: UIScreen.main.bounds)

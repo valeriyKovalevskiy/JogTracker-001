@@ -2,7 +2,7 @@
 //  JogsTableViewCell.swift
 //  JogTracker
 //
-//  Created by валерий on 1/13/20.
+//  Created by Valeriy Kovalevskiy on 1/13/20.
 //  Copyright © 2020 ValeriyKovalevskiy. All rights reserved.
 
 
@@ -14,16 +14,27 @@ class JogsTableViewCell: UITableViewCell {
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-
+    @IBOutlet var imgView: UIImageView!
     
-    // MARK: - Initialization and config
+    @IBOutlet weak var stackView: UIStackView!
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        configCell()
     }
     
-    private func configCell() {
-//delegates? take data from addnew selection
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
     }
 }
