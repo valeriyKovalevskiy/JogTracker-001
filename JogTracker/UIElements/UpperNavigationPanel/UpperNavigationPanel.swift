@@ -89,7 +89,7 @@ class UpperNavigationPanel: UIView {
             let destinationVC = destinationStoryboard.instantiateViewController(withIdentifier: "JogsScreenViewController")
             (UIApplication.topViewController() as AnyObject).present(destinationVC, animated: true, completion: nil)
         } else {
-            let destinationVC = destinationStoryboard.instantiateViewController(withIdentifier: "ViewController")
+            let destinationVC = destinationStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
             (UIApplication.topViewController() as AnyObject).present(destinationVC, animated: true, completion: nil)
         }
     }
