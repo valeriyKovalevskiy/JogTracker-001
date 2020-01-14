@@ -15,7 +15,8 @@ class JogsScreenViewController: UIViewController {
     static var tableViewCellData = [TableViewCellData]()
 
     @IBOutlet private weak var tableView: UITableView!
-
+    var user: User?
+    
     @IBOutlet private weak var emptyTableView: UIView!
     @IBOutlet private weak var emptyTableViewLabel: UILabel!
     @IBOutlet private weak var emptyTableViewButton: UIButton!
@@ -143,13 +144,18 @@ extension JogsScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JogsTableViewCell" , for: indexPath) as! JogsTableViewCell
         let data = JogsScreenViewController.tableViewCellData[indexPath.row]
-        cell.dateLabel.text = "\(data.date)"
-        cell.distanceLabel.text = "\(data.distanse) km"
-        cell.timeLabel.text = "\(data.time) min"
-        cell.speedLabel.text = "\(Int(data.distanse)! / Int(data.time)! / 60) km / h"
         
+        guard let distanse = Int(data.distanse), let time = Int(data.time) else { return cell }
+        
+        cell.dateLabel.text = "\(data.date)"
+        cell.speedLabel.text = "Speed:"+"\(distanse / (time / 60)) km / h"
+        cell.distanceLabel.text = "Distance:"+"\(distanse) km"
+        cell.timeLabel.text = "Time:"+"\(time) min"
         cell.imgView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 66).isActive = true
+        
+        
         cell.imgView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+        cell.stackView.spacing = 10.0
         cell.stackView.leadingAnchor.constraint(equalTo: cell.imgView.trailingAnchor, constant: 50).isActive = true
         cell.stackView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
         return cell

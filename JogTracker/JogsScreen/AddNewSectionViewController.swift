@@ -47,6 +47,7 @@ class AddNewSectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        datePickerCreate()
         setupNewSectionView()
         self.hideKeyboardWhenTappedAround()
     }
@@ -74,6 +75,19 @@ class AddNewSectionViewController: UIViewController {
         saveButton.backgroundColor = .clear
 
     }
+    private func datePickerCreate() {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.addTarget(self, action: #selector(AddNewSectionViewController.datePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
+        dateTextField.inputView = datePicker
+    }
+    
+    @objc private func datePickerValueChanged(sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.medium
+        formatter.timeStyle = DateFormatter.Style.none
+        dateTextField.text = formatter.string(from: sender.date)
+    }
     
     private func checkTextFieldsAreNotEmpty() {
         if distanceTextField.text == "" { distanceLabel.textColor = .red }
@@ -87,9 +101,13 @@ class AddNewSectionViewController: UIViewController {
     @IBAction func didTappedSaveButton(_ sender: UIButton) {
         checkTextFieldsAreNotEmpty()
         
-        guard distanceTextField.text != "" && timeTextField.text != "" && dateTextField.text != "" else { return }
+        guard let distance = distanceTextField.text,
+              let time = timeTextField.text,
+              let date = dateTextField.text else { return }
         
-        let data = [TableViewCellData.init(date: dateTextField.text ?? "", distanse: distanceTextField.text ?? "", time: timeTextField.text ?? "")]
+        guard !distance.isEmpty && !time.isEmpty && !date.isEmpty else { return }
+        
+        let data = [TableViewCellData.init(date: date, distanse: distance, time: time)]
         JogsScreenViewController.tableViewCellData.append(data.first!)
         UserDefault.setBool(true, key: UserDefault.Keys.tableViewContainsData)
         let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)

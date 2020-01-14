@@ -579,7 +579,6 @@
         <image name="xmark" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ak6-7O-3iv"/>
         <segue reference="XlD-63-y1Y"/>
         <segue reference="9Et-NQ-0ft"/>
     </inferredMetricsTieBreakers>

@@ -38,6 +38,7 @@ class UserDefault {
     }
     
     enum Keys: String {
+        case validResponse = "validResponse"
         case isMenuOpen = "menuIsOpen"
         case tableViewContainsData = "tableViewContainsData"
         case isLoggedIn = "isLoggedIn"
