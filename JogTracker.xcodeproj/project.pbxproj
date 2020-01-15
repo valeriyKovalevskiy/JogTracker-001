@@ -11,8 +11,12 @@
 		789097D323CC5B5200303DFC /* JogsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789097D223CC5B5200303DFC /* JogsTableViewCell.xib */; };
 		789097D923CD03C800303DFC /* UIViewController+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097D823CD03C800303DFC /* UIViewController+Addition.swift */; };
 		789097DB23CDC4AB00303DFC /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097DA23CDC4AB00303DFC /* NetworkingService.swift */; };
-		789097DD23CDCEC100303DFC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097DC23CDCEC100303DFC /* User.swift */; };
 		789097DF23CDD41900303DFC /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097DE23CDD41900303DFC /* ErrorResponse.swift */; };
+		789097E123CF09EF00303DFC /* ContactUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097E023CF09EF00303DFC /* ContactUsViewModel.swift */; };
+		789097E323CF0BCD00303DFC /* InfoScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097E223CF0BCD00303DFC /* InfoScreenViewModel.swift */; };
+		789097E623CF0F3B00303DFC /* JogsScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097E523CF0F3B00303DFC /* JogsScreenModel.swift */; };
+		789097E823CF104B00303DFC /* NewSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097E723CF104B00303DFC /* NewSectionViewModel.swift */; };
+		789097EA23CF17F500303DFC /* UpperNavigationPanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097E923CF17F500303DFC /* UpperNavigationPanelViewModel.swift */; };
 		78D90C3123C88C3A0013D11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C3023C88C3A0013D11D /* AppDelegate.swift */; };
 		78D90C3323C88C3A0013D11D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C3223C88C3A0013D11D /* SceneDelegate.swift */; };
 		78D90C3523C88C3A0013D11D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C3423C88C3A0013D11D /* LoginViewController.swift */; };
@@ -22,8 +26,7 @@
 		78D90C4023C88C3D0013D11D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78D90C3E23C88C3D0013D11D /* LaunchScreen.storyboard */; };
 		78D90C4923C88F740013D11D /* UIColor+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C4823C88F740013D11D /* UIColor+Addition.swift */; };
 		78D90C4B23C88F820013D11D /* UIFont+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C4A23C88F820013D11D /* UIFont+Addition.swift */; };
-		78D90C4D23C88F910013D11D /* UIDevice+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C4C23C88F910013D11D /* UIDevice+Addition.swift */; };
-		78D90C5223C897F30013D11D /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C5123C897F30013D11D /* LoginScreenViewModel.swift */; };
+		78D90C5223C897F30013D11D /* LoginWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C5123C897F30013D11D /* LoginWindowViewModel.swift */; };
 		78D90C5523C89C640013D11D /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C5423C89C640013D11D /* MainMenuViewController.swift */; };
 		78D90C5723C89C720013D11D /* MainMenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78D90C5623C89C720013D11D /* MainMenuViewController.storyboard */; };
 		78D90C5923C89C820013D11D /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D90C5823C89C820013D11D /* MainMenuViewModel.swift */; };
@@ -36,7 +39,7 @@
 		78DB763623CAF241009C496A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB763523CAF241009C496A /* UserDefaults.swift */; };
 		78DB763D23CB194C009C496A /* LoginWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB763C23CB194C009C496A /* LoginWindowViewController.swift */; };
 		78DB764423CB2513009C496A /* JogsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB764323CB2513009C496A /* JogsScreenViewController.swift */; };
-		78DB764623CB3458009C496A /* AddNewSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB764523CB3458009C496A /* AddNewSectionViewController.swift */; };
+		78DB764623CB3458009C496A /* NewSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB764523CB3458009C496A /* NewSectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +47,12 @@
 		789097D223CC5B5200303DFC /* JogsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JogsTableViewCell.xib; sourceTree = "<group>"; };
 		789097D823CD03C800303DFC /* UIViewController+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Addition.swift"; sourceTree = "<group>"; };
 		789097DA23CDC4AB00303DFC /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
-		789097DC23CDCEC100303DFC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		789097DE23CDD41900303DFC /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		789097E023CF09EF00303DFC /* ContactUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewModel.swift; sourceTree = "<group>"; };
+		789097E223CF0BCD00303DFC /* InfoScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScreenViewModel.swift; sourceTree = "<group>"; };
+		789097E523CF0F3B00303DFC /* JogsScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogsScreenModel.swift; sourceTree = "<group>"; };
+		789097E723CF104B00303DFC /* NewSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSectionViewModel.swift; sourceTree = "<group>"; };
+		789097E923CF17F500303DFC /* UpperNavigationPanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperNavigationPanelViewModel.swift; sourceTree = "<group>"; };
 		78D90C2D23C88C3A0013D11D /* JogTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JogTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D90C3023C88C3A0013D11D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78D90C3223C88C3A0013D11D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,8 +64,7 @@
 		78D90C4123C88C3D0013D11D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78D90C4823C88F740013D11D /* UIColor+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Addition.swift"; sourceTree = "<group>"; };
 		78D90C4A23C88F820013D11D /* UIFont+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Addition.swift"; sourceTree = "<group>"; };
-		78D90C4C23C88F910013D11D /* UIDevice+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Addition.swift"; sourceTree = "<group>"; };
-		78D90C5123C897F30013D11D /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
+		78D90C5123C897F30013D11D /* LoginWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWindowViewModel.swift; sourceTree = "<group>"; };
 		78D90C5423C89C640013D11D /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		78D90C5623C89C720013D11D /* MainMenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenuViewController.storyboard; sourceTree = "<group>"; };
 		78D90C5823C89C820013D11D /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
@@ -71,7 +77,7 @@
 		78DB763523CAF241009C496A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		78DB763C23CB194C009C496A /* LoginWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWindowViewController.swift; sourceTree = "<group>"; };
 		78DB764323CB2513009C496A /* JogsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogsScreenViewController.swift; sourceTree = "<group>"; };
-		78DB764523CB3458009C496A /* AddNewSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSectionViewController.swift; sourceTree = "<group>"; };
+		78DB764523CB3458009C496A /* NewSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		789097E423CF0EF100303DFC /* JogsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				789097D023CC5B4200303DFC /* JogsTableViewCell.swift */,
+				789097D223CC5B5200303DFC /* JogsTableViewCell.xib */,
+			);
+			path = JogsTableViewCell;
+			sourceTree = "<group>";
+		};
 		78D90C2423C88C3A0013D11D = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +143,6 @@
 			children = (
 				78D90C4823C88F740013D11D /* UIColor+Addition.swift */,
 				78D90C4A23C88F820013D11D /* UIFont+Addition.swift */,
-				78D90C4C23C88F910013D11D /* UIDevice+Addition.swift */,
 				789097D823CD03C800303DFC /* UIViewController+Addition.swift */,
 			);
 			path = Additions;
@@ -138,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				78D90C3423C88C3A0013D11D /* LoginViewController.swift */,
-				78D90C5123C897F30013D11D /* LoginScreenViewModel.swift */,
+				78D90C5123C897F30013D11D /* LoginWindowViewModel.swift */,
 				78DB763C23CB194C009C496A /* LoginWindowViewController.swift */,
 			);
 			path = LoginScreen;
@@ -165,6 +179,7 @@
 		78D90C5A23C8A1D60013D11D /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				789097E423CF0EF100303DFC /* JogsTableViewCell */,
 				78D90C6123C8B7AD0013D11D /* UpperNavigationPanel */,
 			);
 			path = UIElements;
@@ -175,6 +190,7 @@
 			children = (
 				78D90C5F23C8A8AD0013D11D /* UpperNavigationPanel.swift */,
 				78D90C5D23C8A2D20013D11D /* UpperNavigationPanel.xib */,
+				789097E923CF17F500303DFC /* UpperNavigationPanelViewModel.swift */,
 			);
 			path = UpperNavigationPanel;
 			sourceTree = "<group>";
@@ -184,6 +200,7 @@
 			children = (
 				78D90C7723C90DE40013D11D /* InfoViewController.swift */,
 				78D90C7923C90DEF0013D11D /* InfoViewController.storyboard */,
+				789097E223CF0BCD00303DFC /* InfoScreenViewModel.swift */,
 			);
 			path = InfoScreen;
 			sourceTree = "<group>";
@@ -193,6 +210,7 @@
 			children = (
 				78D90C7B23C90E410013D11D /* ContactUsViewController.swift */,
 				78D90C7D23C90E520013D11D /* ContactUsViewController.storyboard */,
+				789097E023CF09EF00303DFC /* ContactUsViewModel.swift */,
 			);
 			path = ContactUsScreen;
 			sourceTree = "<group>";
@@ -202,7 +220,6 @@
 			children = (
 				78DB763523CAF241009C496A /* UserDefaults.swift */,
 				789097DA23CDC4AB00303DFC /* NetworkingService.swift */,
-				789097DC23CDCEC100303DFC /* User.swift */,
 				789097DE23CDD41900303DFC /* ErrorResponse.swift */,
 			);
 			path = Helpers;
@@ -212,9 +229,9 @@
 			isa = PBXGroup;
 			children = (
 				78DB764323CB2513009C496A /* JogsScreenViewController.swift */,
-				78DB764523CB3458009C496A /* AddNewSectionViewController.swift */,
-				789097D023CC5B4200303DFC /* JogsTableViewCell.swift */,
-				789097D223CC5B5200303DFC /* JogsTableViewCell.xib */,
+				78DB764523CB3458009C496A /* NewSectionViewController.swift */,
+				789097E523CF0F3B00303DFC /* JogsScreenModel.swift */,
+				789097E723CF104B00303DFC /* NewSectionViewModel.swift */,
 			);
 			path = JogsScreen;
 			sourceTree = "<group>";
@@ -298,25 +315,28 @@
 				78D90C5523C89C640013D11D /* MainMenuViewController.swift in Sources */,
 				78D90C4B23C88F820013D11D /* UIFont+Addition.swift in Sources */,
 				78D90C5923C89C820013D11D /* MainMenuViewModel.swift in Sources */,
+				789097EA23CF17F500303DFC /* UpperNavigationPanelViewModel.swift in Sources */,
 				78DB763D23CB194C009C496A /* LoginWindowViewController.swift in Sources */,
 				789097D123CC5B4200303DFC /* JogsTableViewCell.swift in Sources */,
 				78D90C3523C88C3A0013D11D /* LoginViewController.swift in Sources */,
-				78D90C5223C897F30013D11D /* LoginScreenViewModel.swift in Sources */,
+				78D90C5223C897F30013D11D /* LoginWindowViewModel.swift in Sources */,
 				78D90C3123C88C3A0013D11D /* AppDelegate.swift in Sources */,
-				78DB764623CB3458009C496A /* AddNewSectionViewController.swift in Sources */,
+				78DB764623CB3458009C496A /* NewSectionViewController.swift in Sources */,
+				789097E823CF104B00303DFC /* NewSectionViewModel.swift in Sources */,
 				78D90C4923C88F740013D11D /* UIColor+Addition.swift in Sources */,
 				78D90C6023C8A8AD0013D11D /* UpperNavigationPanel.swift in Sources */,
 				789097D923CD03C800303DFC /* UIViewController+Addition.swift in Sources */,
+				789097E123CF09EF00303DFC /* ContactUsViewModel.swift in Sources */,
 				78D90C7C23C90E410013D11D /* ContactUsViewController.swift in Sources */,
 				78D90C3323C88C3A0013D11D /* SceneDelegate.swift in Sources */,
+				789097E623CF0F3B00303DFC /* JogsScreenModel.swift in Sources */,
 				78DB764423CB2513009C496A /* JogsScreenViewController.swift in Sources */,
 				789097DB23CDC4AB00303DFC /* NetworkingService.swift in Sources */,
 				78DB763623CAF241009C496A /* UserDefaults.swift in Sources */,
-				78D90C4D23C88F910013D11D /* UIDevice+Addition.swift in Sources */,
 				78D90C3B23C88C3A0013D11D /* JogTracker.xcdatamodeld in Sources */,
+				789097E323CF0BCD00303DFC /* InfoScreenViewModel.swift in Sources */,
 				789097DF23CDD41900303DFC /* ErrorResponse.swift in Sources */,
 				78D90C7823C90DE40013D11D /* InfoViewController.swift in Sources */,
-				789097DD23CDCEC100303DFC /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

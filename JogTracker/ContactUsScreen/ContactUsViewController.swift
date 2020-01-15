@@ -10,44 +10,41 @@ import UIKit
 
 class ContactUsViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var webpageLabel: UILabel!
-    
-    let titleLabelText = "CONTACT US" //From model
-    let numberLabelText = "375 (33) 902-15-31"
-    let emailLabelText = "Kovalevskiy2021@gmail.com"
-    let webpageLabelText = "github.com"
-    
+    //MARK: - Outlets
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var numberLabel: UILabel!
+    @IBOutlet private weak var emailLabel: UILabel!
+    @IBOutlet private weak var webpageLabel: UILabel!
+
+    //MARK: - Vars, Constants
+    let viewModel = ContactUsViewModel()
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
+    //MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTitleLabel()
-        setupStackViewLabels()
+        setupLabels()
     }
-    
-    func setupTitleLabel() {
-        titleLabel.text = titleLabelText
+
+    //MARK: - Private methods
+    private func setupLabels() {
+        titleLabel.text = viewModel.titleLabelText
         titleLabel.font = UIFont.textStyle
         titleLabel.textColor = .appleGreen
-    }
-    
-    func setupStackViewLabels() {
-        numberLabel.text = numberLabelText
+        
+        numberLabel.text = viewModel.numberLabelText
         numberLabel.font = UIFont.textStyle2
         numberLabel.textColor = .black
         
-        emailLabel.text = emailLabelText
+        emailLabel.text = viewModel.emailLabelText
         emailLabel.font = UIFont.textStyle2
         emailLabel.textColor = .black
         
-        webpageLabel.text = webpageLabelText
-        webpageLabel.font = UIFont.textStyle2
+        webpageLabel.text = viewModel.webpageLabelText
+        webpageLabel.font = UIFont.textStyle6
         webpageLabel.textColor = .black
     }
     

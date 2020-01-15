@@ -1,5 +1,5 @@
 //
-//  AddNewSectionViewController.swift
+//  NewSectionViewController.swift
 //  JogTracker
 //
 //  Created by Valeriy Kovalevskiy on 1/12/20.
@@ -8,77 +8,59 @@
 
 import UIKit
 
+class NewSectionViewController: UIViewController {
 
-struct TableViewCellData {
-    let date: String
-    let distanse: String
-    let time: String
-    
-    init(date: String, distanse: String, time: String) {
-        self.date = date
-        self.distanse = distanse
-        self.time = time
-    }
-}
-
-class AddNewSectionViewController: UIViewController {
-
-    
-
+    //MARK: - Outlets
     @IBOutlet weak var newSectionView: UIView!
-    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var saveButtonHeightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var distanceTextField: UITextField!
-    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeTextField: UITextField!
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dateTextField: UITextField!
     
+    //MARK: - Vars, Constants
+    let viewModel = NewSectionViewModel()
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
+    //MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        datePickerCreate()
+        datePickerForDateTextFieldCreate()
         setupNewSectionView()
         self.hideKeyboardWhenTappedAround()
     }
     
-    func setupNewSectionView() {
-        
-        closeButton.tintColor = .whiteThree
-        
+    //MARK: - Private methods
+    private func setupNewSectionView() {
         newSectionView.layer.cornerRadius = 29
         newSectionView.backgroundColor = .appleGreen
-        
-        distanceLabel.text = "Distance"
+        distanceLabel.text = viewModel.distanceLabelTitle
         distanceLabel.font = .textStyle6
-        timeLabel.text = "Time"
+        timeLabel.text = viewModel.timeLabelTitle
         timeLabel.font = .textStyle6
-        dateLabel.text = "Date"
+        dateLabel.text = viewModel.dateLabelTitle
         dateLabel.font = .textStyle6
-        
+        closeButton.tintColor = .whiteThree
+        saveButton.setTitle(viewModel.saveButtonTitle, for: .normal)
         saveButton.layer.cornerRadius = saveButtonHeightConstraint.constant / 2
         saveButton.layer.borderColor = UIColor.whiteThree.cgColor
         saveButton.layer.borderWidth = 2.0
         saveButton.titleLabel?.font = .textStyle7
         saveButton.tintColor = .whiteThree
-        saveButton.setTitle("Save", for: .normal)
         saveButton.backgroundColor = .clear
-
     }
-    private func datePickerCreate() {
+        
+    private func datePickerForDateTextFieldCreate() {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = UIDatePicker.Mode.date
-        datePicker.addTarget(self, action: #selector(AddNewSectionViewController.datePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
+        datePicker.addTarget(self, action: #selector(NewSectionViewController.datePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
         dateTextField.inputView = datePicker
     }
     
@@ -88,7 +70,7 @@ class AddNewSectionViewController: UIViewController {
         formatter.timeStyle = DateFormatter.Style.none
         dateTextField.text = formatter.string(from: sender.date)
     }
-    
+
     private func checkTextFieldsAreNotEmpty() {
         if distanceTextField.text == "" { distanceLabel.textColor = .red }
         else { distanceLabel.textColor = .black }
@@ -98,6 +80,7 @@ class AddNewSectionViewController: UIViewController {
         else { dateLabel.textColor = .black }
     }
 
+    //MARK: - Actions
     @IBAction func didTappedSaveButton(_ sender: UIButton) {
         checkTextFieldsAreNotEmpty()
         
@@ -109,9 +92,7 @@ class AddNewSectionViewController: UIViewController {
         
         let data = [TableViewCellData.init(date: date, distanse: distance, time: time)]
         JogsScreenViewController.tableViewCellData.append(data.first!)
-        UserDefault.setBool(true, key: UserDefault.Keys.tableViewContainsData)
-        let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)
-        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "JogsScreenViewController")
-        (UIApplication.topViewController() as AnyObject).present(controller, animated: true, completion: nil)
+       
+        viewModel.moveToJogsScreen()
     }
 }

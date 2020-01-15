@@ -37,7 +37,6 @@
                                         </constraints>
                                         <state key="normal" title="Let me in"/>
                                         <connections>
-                                            <action selector="didTappedLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLU-NS-aXy"/>
                                             <segue destination="mTJ-he-0fy" kind="show" id="vhP-SD-fmP"/>
                                         </connections>
                                     </button>
@@ -223,14 +222,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RPb-ed-t3Y">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPb-ed-t3Y">
                                         <rect key="frame" x="106" y="14.5" width="72" height="31"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="Ltq-XN-UU9"/>
                                             <constraint firstAttribute="height" constant="31" id="usR-7c-MSO"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO8-iH-6gL">
@@ -243,15 +242,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xbf-n9-jTT">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbf-n9-jTT">
                                         <rect key="frame" x="274" y="14.5" width="72" height="31"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="08h-dl-Tgg"/>
                                             <constraint firstAttribute="width" constant="72" id="P2x-bn-9dd"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91754716629999999" green="0.9177046418" blue="0.91753727200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -393,10 +392,10 @@
             </objects>
             <point key="canvasLocation" x="3848.8000000000002" y="116.49175412293854"/>
         </scene>
-        <!--Add New Section View Controller-->
+        <!--New Section View Controller-->
         <scene sceneID="F96-aM-LcU">
             <objects>
-                <viewController storyboardIdentifier="AddNewSectionViewController" modalPresentationStyle="fullScreen" id="olZ-pc-EFi" customClass="AddNewSectionViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewSectionViewController" modalPresentationStyle="fullScreen" id="olZ-pc-EFi" customClass="NewSectionViewController" customModule="JogTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4yy-wn-ZHM"/>
                         <viewControllerLayoutGuide type="bottom" id="nYz-KQ-c18"/>
@@ -541,7 +540,7 @@
                         <outlet property="dateTextField" destination="24m-Qq-o0v" id="t4V-gG-H3x"/>
                         <outlet property="distanceLabel" destination="M8k-2o-IvR" id="IqQ-uA-fJY"/>
                         <outlet property="distanceTextField" destination="CO3-Ub-l8M" id="Wm3-1K-b76"/>
-                        <outlet property="newSectionView" destination="PDx-J9-lT0" id="fnM-2x-96l"/>
+                        <outlet property="newSectionView" destination="PDx-J9-lT0" id="tu0-qn-iUD"/>
                         <outlet property="saveButton" destination="cMN-fc-kcd" id="Sqn-WK-2un"/>
                         <outlet property="saveButtonHeightConstraint" destination="mxR-wu-kNt" id="fbb-QS-b8O"/>
                         <outlet property="timeLabel" destination="R5L-bz-N7d" id="CQH-q7-IS0"/>
@@ -579,6 +578,7 @@
         <image name="xmark" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ak6-7O-3iv"/>
         <segue reference="XlD-63-y1Y"/>
         <segue reference="9Et-NQ-0ft"/>
     </inferredMetricsTieBreakers>

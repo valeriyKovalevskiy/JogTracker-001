@@ -8,11 +8,6 @@
 
 import Foundation
 
-enum ActivityState {
-    case active
-    case unactive
-}
-
 class UserDefault {
     
     static var defaults = UserDefaults.standard
@@ -43,5 +38,4 @@ class UserDefault {
         case tableViewContainsData = "tableViewContainsData"
         case isLoggedIn = "isLoggedIn"
     }
-    
 }

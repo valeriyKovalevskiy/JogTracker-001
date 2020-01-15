@@ -12,6 +12,10 @@ class NetworkingService {
     
     let baseUrl = "https://jogtracker.herokuapp.com/api"
     
+//    func getRequest() {
+//        guard let url = URL(string: "\(baseUrl)"+"/") else { return }
+//    }
+    
     func request(endpoint: String, parameters: [String: Any], completion: @escaping (Result<User, Error>) -> Void) {
         guard let url = URL(string: baseUrl + endpoint) else {
             completion(.failure(NetworkingError.badUrl))

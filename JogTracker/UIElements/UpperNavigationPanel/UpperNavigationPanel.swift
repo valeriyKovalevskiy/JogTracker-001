@@ -17,6 +17,7 @@ class UpperNavigationPanel: UIView {
     @IBOutlet private weak var menuButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var menuButtonWidthConstraint: NSLayoutConstraint!
     
+    let viewModel = UpperNavigationPanelViewModel()
     private var menuButtonState: ActivityState?
     
     //MARK: - Init
@@ -72,40 +73,17 @@ class UpperNavigationPanel: UIView {
     
     private func switchUpperPanelActivityState() {
         switch menuButtonState {
-        case .active:
-            upperPanelActiveState()
-        case .unactive:
-            upperPanelUnactiveState()
-        default:
-            break
+        case .active: upperPanelActiveState()
+        case .unactive: upperPanelUnactiveState()
+        default: break
         }
-    }
-    
-    private func closeMenu() {
-        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
-        let destinationStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    
-        if UserDefault.getBool(UserDefault.Keys.isLoggedIn) {
-            let destinationVC = destinationStoryboard.instantiateViewController(withIdentifier: "JogsScreenViewController")
-            (UIApplication.topViewController() as AnyObject).present(destinationVC, animated: true, completion: nil)
-        } else {
-            let destinationVC = destinationStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
-            (UIApplication.topViewController() as AnyObject).present(destinationVC, animated: true, completion: nil)
-        }
-    }
-    
-    private func openMenu() {
-        UserDefault.setBool(true, key: UserDefault.Keys.isMenuOpen)
-        let destinationStoryboard = UIStoryboard(name: "MainMenuViewController", bundle: nil)
-        let destinationVC = destinationStoryboard.instantiateViewController(withIdentifier: "MainMenuViewController")
-        (UIApplication.topViewController() as AnyObject).present(destinationVC, animated: true, completion: nil)
     }
     
     //MARK: - Actions
     @IBAction func didTappedMenuButton(_ sender: UIButton) {
         
-        guard menuButtonState == .active else { return openMenu() }
+        guard menuButtonState == .active else { return viewModel.openMenu() }
         
-        closeMenu()
+        viewModel.closeMenu()
     }
 }

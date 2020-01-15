@@ -10,42 +10,87 @@ import UIKit
 
 class JogsScreenViewController: UIViewController {
 
-    private var filterMenuState: ActivityState = .unactive
-    private var buttonState: ActivityState = .unactive
-    static var tableViewCellData = [TableViewCellData]()
-
+    //MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
-    var user: User?
-    
     @IBOutlet private weak var emptyTableView: UIView!
     @IBOutlet private weak var emptyTableViewLabel: UILabel!
     @IBOutlet private weak var emptyTableViewButton: UIButton!
     @IBOutlet private weak var emptyTableViewButtonHeightConstraint: NSLayoutConstraint!
-    
     @IBOutlet private weak var filterView: UIView!
     @IBOutlet private weak var filterButton: UIButton!
     @IBOutlet private weak var filterViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var filterButtonWidthConstraint: NSLayoutConstraint!
     @IBOutlet private weak var filterButtonHeightConstraint: NSLayoutConstraint!
-    
     @IBOutlet private weak var dateFromTextField: UITextField!
     @IBOutlet private weak var dateToTextField: UITextField!
     @IBOutlet private weak var dateFromLabel: UILabel!
     @IBOutlet private weak var dateToLabel: UILabel!
     
+    //MARK: - Vars, Constants
+    private var filterMenuState: ActivityState = .unactive
+    private var buttonState: ActivityState = .unactive
+    var filteredData = [TableViewCellData]()
+    var isFiltering: Bool = false
+    static var tableViewCellData = [TableViewCellData]()
     override var prefersStatusBarHidden: Bool {
         return true
     }
-        
+
+    //MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.hideKeyboardWhenTappedAround()
+        
+        firstEnter()
+        setupDatePickers()
         setupFilterView()
         setupTableView()
-        filterView.isHidden = true
-        firstEnter()
-
+    }
+    
+    //MARK: - Private methods
+    private func firstEnter() {
+        guard !UserDefault.getBool(UserDefault.Keys.tableViewContainsData) else { return showJogsTableView() }
+        emptyTableViewLabel.font = .textStyle1
+        emptyTableViewLabel.textColor = .greyish
+        
+        emptyTableViewButton.layer.cornerRadius = emptyTableViewButtonHeightConstraint.constant / 2
+        emptyTableViewButton.layer.borderColor = UIColor.babyPurple.cgColor
+        emptyTableViewButton.layer.borderWidth = 3.0
+        emptyTableViewButton.titleLabel?.font = .textStyle2
+        emptyTableViewButton.tintColor = .babyPurple
+        emptyTableViewButton.setTitle("Create your jog first", for: .normal)
+    }
+    
+    private func showJogsTableView() {
+        emptyTableView.isHidden = true
+        filterButton.isHidden = false
+    }
+    
+    private func setupDatePickers() {
+        let datePickerFrom = UIDatePicker()
+        datePickerFrom.datePickerMode = UIDatePicker.Mode.date
+        datePickerFrom.addTarget(self, action: #selector(JogsScreenViewController.fromDatePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
+        dateFromTextField.inputView = datePickerFrom
+        
+        let datePickerTo = UIDatePicker()
+        datePickerTo.datePickerMode = UIDatePicker.Mode.date
+        datePickerTo.addTarget(self, action: #selector(JogsScreenViewController.toDatePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
+        dateToTextField.inputView = datePickerTo
+    }
+    
+    @objc private func toDatePickerValueChanged(sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.short
+        formatter.timeStyle = DateFormatter.Style.none
+        dateToTextField.text = formatter.string(from: sender.date)
+    }
+    
+    @objc private func fromDatePickerValueChanged(sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.short
+        formatter.timeStyle = DateFormatter.Style.none
+        dateFromTextField.text = formatter.string(from: sender.date)
     }
     
     private func setupFilterView() {
@@ -64,35 +109,14 @@ class JogsScreenViewController: UIViewController {
         dateToLabel.textColor = .darkGray
         dateToLabel.font = .textStyle6
         dateFromLabel.textColor = .darkGray
+        
+        filterView.isHidden = true
 
     }
     
     private func setupTableView() {
         let nib = UINib(nibName: "JogsTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "JogsTableViewCell")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
-    func showJogsTableView() {
-        emptyTableView.isHidden = true
-        filterButton.isHidden = false
-    }
-    
-    func firstEnter() {
-        guard !UserDefault.getBool(UserDefault.Keys.tableViewContainsData) else { return showJogsTableView() }
-        emptyTableViewLabel.font = .textStyle1
-        emptyTableViewLabel.textColor = .greyish
-        
-        emptyTableViewButton.layer.cornerRadius = emptyTableViewButtonHeightConstraint.constant / 2
-        emptyTableViewButton.layer.borderColor = UIColor.babyPurple.cgColor
-        emptyTableViewButton.layer.borderWidth = 3.0
-        emptyTableViewButton.titleLabel?.font = .textStyle2
-        emptyTableViewButton.tintColor = .babyPurple
-        emptyTableViewButton.setTitle("Create your jog first", for: .normal)
     }
     
     private func filterButtonStateChanged() {
@@ -131,11 +155,12 @@ class JogsScreenViewController: UIViewController {
     }
     
     @IBAction func didTappedFilterButton(_ sender: UIButton) {
-            filterButtonStateChanged()
-            filterViewStateChanged()
-        }
+        filterButtonStateChanged()
+        filterViewStateChanged()
     }
+}
 
+//MARK: - Extensions
 extension JogsScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return JogsScreenViewController.tableViewCellData.count
@@ -147,29 +172,31 @@ extension JogsScreenViewController: UITableViewDataSource {
         
         guard let distanse = Int(data.distanse), let time = Int(data.time) else { return cell }
         
+        let timeHours: Double = Double(time) / 60
+        let speed = ( Double(distanse) / timeHours)
+
         cell.dateLabel.text = "\(data.date)"
-        cell.speedLabel.text = "Speed:"+"\(distanse / (time / 60)) km / h"
-        cell.distanceLabel.text = "Distance:"+"\(distanse) km"
-        cell.timeLabel.text = "Time:"+"\(time) min"
+        cell.distanceLabel.text = "Distance: "+"\(distanse) km"
+        cell.timeLabel.text = "Time: "+"\(time) min"
+        cell.speedLabel.text = "Speed: "+"\(Int(speed)) km / h"
+        
         cell.imgView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 66).isActive = true
-        
-        
         cell.imgView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
         cell.stackView.spacing = 10.0
         cell.stackView.leadingAnchor.constraint(equalTo: cell.imgView.trailingAnchor, constant: 50).isActive = true
         cell.stackView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
         return cell
     }
-
 }
 
 extension JogsScreenViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 187
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("fgdfgdf")
-    }
 }
 
+extension Date {
+    func days(to secondDate: Date, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.dateComponents([.day], from: self, to: secondDate).day! // Здесь force unwrap, так как в компонентах указали .day и берем day
+    }
+}

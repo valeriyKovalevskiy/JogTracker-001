@@ -10,17 +10,17 @@ import UIKit
 
 class JogsTableViewCell: UITableViewCell {
     
+    //MARK: - Outlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet var imgView: UIImageView!
-    
     @IBOutlet weak var stackView: UIStackView!
     
+    //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         
     }
 
@@ -32,9 +32,5 @@ class JogsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
 }

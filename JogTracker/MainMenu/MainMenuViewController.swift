@@ -10,73 +10,56 @@ import UIKit
 
 class MainMenuViewController: UIViewController {
     
-    @IBOutlet weak var jogsButton: UIButton!
-    @IBOutlet weak var infoButton: UIButton!
-    @IBOutlet weak var contactUsButton: UIButton!
+    //MARK: - Outlets
+    @IBOutlet private weak var jogsButton: UIButton!
+    @IBOutlet private weak var infoButton: UIButton!
+    @IBOutlet private weak var contactUsButton: UIButton!
     
-    let jogsButtonText = "JOGS"
-    let infoButtonText = "INFO"
-    let contactUsButtonText = "CONTACT US"
+    //MARK: - Vars, Constants
+    let viewModel = MainMenuViewModel()
     let font: UIFont = .textStyle
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
+    //MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupStackViewLabels()
     }
     
-    func setupStackViewLabels() {
-
-        jogsButton.setTitle(jogsButtonText, for: .normal)
+    //MARK: - Private methods
+    private func setupStackViewLabels() {
+        jogsButton.setTitle(viewModel.jogsButtonText, for: .normal)
         jogsButton.titleLabel?.font = font
         jogsButton.tintColor = .black
         
-        infoButton.setTitle(infoButtonText, for: .normal)
+        infoButton.setTitle(viewModel.infoButtonText, for: .normal)
         infoButton.titleLabel?.font = font
         infoButton.tintColor = .black
         
-        contactUsButton.setTitle(contactUsButtonText, for: .normal)
+        contactUsButton.setTitle(viewModel.contactUsButtonText, for: .normal)
         contactUsButton.titleLabel?.font = font
         contactUsButton.tintColor = .black
     }
     
+    //MARK: - Actions
     @IBAction func didTappedJogsButton(_ sender: UIButton) {
-
-        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
         jogsButton.tintColor = .appleGreen
-        guard UserDefault.getBool(UserDefault.Keys.isLoggedIn) else { return showLoginScreen() }
-        showJogsScreen()
-    }
-    
-    func showLoginScreen() {
-        let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)
-        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "ViewController")
-        (UIApplication.topViewController() as AnyObject).present(controller, animated: true, completion: nil)
-    }
-    func showJogsScreen() {
-        let mainMenuViewController = UIStoryboard(name: "Main", bundle: nil)
-        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "JogsScreenViewController")
-        (UIApplication.topViewController() as AnyObject).present(controller, animated: true, completion: nil)
+
+        viewModel.didTappedJogsButton()
     }
     
     @IBAction func didTappedInfoButton(_ : UIButton) {
-        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
         infoButton.tintColor = .appleGreen
-        let mainMenuViewController = UIStoryboard(name: "InfoViewController", bundle: nil)
-        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "InfoViewController")
-        show(controller, sender: infoButton)
-    }
-    @IBAction func didTappedContactUsButton(_ : UIButton) {
-        UserDefault.setBool(false, key: UserDefault.Keys.isMenuOpen)
-        contactUsButton.tintColor = .appleGreen
-        let mainMenuViewController = UIStoryboard(name: "ContactUsViewController", bundle: nil)
-        let controller = mainMenuViewController.instantiateViewController(withIdentifier: "ContactUsViewController")
-        show(controller, sender: contactUsButton)
-
+        
+        viewModel.didTappedInfoButton()
     }
     
+    @IBAction func didTappedContactUsButton(_ : UIButton) {
+        contactUsButton.tintColor = .appleGreen
+        
+        viewModel.didTappedContactUsButton()
+    }
 }
