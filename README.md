@@ -1,2 +1,1 @@
-# JogTracker-001
-Architect - MVVM
+#Jog tracker test task
